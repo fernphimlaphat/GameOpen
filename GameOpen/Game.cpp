@@ -30,6 +30,11 @@ void Game::iniWindow()
     this->window->setVerticalSyncEnabled(veriable_sync_enabled);
 }
 
+void Game::iniState()
+{
+   this->state.push(new GameState(this->window));
+}
+
 //Constructor/Destuctor
 
 
@@ -37,12 +42,19 @@ Game::Game()
 {
     //แสดงหน้าจอ 
     this->iniWindow();
+    this->iniState();
 }
 
 Game::~Game()
 {
     //clean
     delete this->window;
+
+    while (!this->state.empty())
+    {
+        delete this->state.top();
+        this->state.pop();
+    }
 }
 
 //function
@@ -69,6 +81,11 @@ void Game::updateSFMLEvent()
 void Game::update()
 {
     this->updateSFMLEvent();
+
+    if (!this->state.empty())
+    {
+        this->state.top()->update(this->dt);
+    }
     
 }
 
@@ -77,6 +94,10 @@ void Game::render()
     this->window->clear();
  
     //render item
+    if (!this->state.empty())
+    {
+        this->state.top()->render();
+    }
 
     this->window->display();
 }

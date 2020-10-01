@@ -1,6 +1,6 @@
 #pragma once
 
-#include "State.h"
+#include "GameState.h"
 
 
 class Game
@@ -13,11 +13,13 @@ class Game
 	//deltatime
 	sf::Clock dtClock;
 	float dt;
-		
+	
+	std::stack<State*> state; 
 
 //Initializetion
 
 	void iniWindow();
+	void iniState();
 
 private:
 
