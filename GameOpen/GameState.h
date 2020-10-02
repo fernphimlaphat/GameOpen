@@ -8,15 +8,24 @@ class GameState :
 {
 
 private:
+    Entity player;
 
+
+    //Function
+    void iniKeybind();
+        
 public:
 
-    GameState(sf::RenderWindow* window);
+    GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey);
     virtual ~GameState();
 
-    //function
+    //Function
+
+
     void endState();
+
+    void updateInput(const float& dt);
     void update(const float& dt);
-    void render(sf::RenderTarget* target = nullptr);
+    void render(sf::RenderTarget* target = NULL);
 };
 

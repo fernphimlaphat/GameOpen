@@ -16,9 +16,12 @@ class Game
 	
 	std::stack<State*> state; 
 
+	std::map<std::string, int> supportedKey;
+
 //Initializetion
 
 	void iniWindow();
+	void iniKey();
 	void iniState();
 
 private:
@@ -28,11 +31,20 @@ public:
 	Game();
 	virtual ~Game();
 
-//function
+//Function
+
+	//regular
+	void endApp();
+
+	//Update
 	void updateDT();
 	void updateSFMLEvent();
 	void update();
+
+	//Render
 	void render();
+
+	//core
 	void run();
 };
 

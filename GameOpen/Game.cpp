@@ -30,10 +30,23 @@ void Game::iniWindow()
     this->window->setVerticalSyncEnabled(veriable_sync_enabled);
 }
 
+void Game::iniKey()
+{
+    //A = 0,B,C
+    this->supportedKey.emplace("Escape", sf::Keyboard::Key::Escape);
+    this->supportedKey.emplace("A", sf::Keyboard::Key::A);
+    this->supportedKey.emplace("D", sf::Keyboard::Key::D);
+    this->supportedKey.emplace("W", sf::Keyboard::Key::W);
+    this->supportedKey.emplace("S", sf::Keyboard::Key::S);
+}
+
 void Game::iniState()
 {
-   this->state.push(new GameState(this->window));
+   this->state.push(new GameState(this-> window, &this->supportedKey));
 }
+
+
+
 
 //Constructor/Destuctor
 
@@ -42,7 +55,9 @@ Game::Game()
 {
     //แสดงหน้าจอ 
     this->iniWindow();
+    this->iniKey();
     this->iniState();
+
 }
 
 Game::~Game()
@@ -57,7 +72,12 @@ Game::~Game()
     }
 }
 
-//function
+//Function
+
+void Game::endApp()
+{
+    printf("End app\n");
+}
 
 void Game::updateDT()
 {
@@ -85,6 +105,19 @@ void Game::update()
     if (!this->state.empty())
     {
         this->state.top()->update(this->dt);
+
+        if (this->state.top()->getQuit())
+        {
+            this->state.top()->endState();
+            delete this->state.top();
+            this->state.pop();
+        }
+    }
+    //quit game
+    else
+    {
+        this->endApp();
+        this->window ->close();
     }
     
 }
