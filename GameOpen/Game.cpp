@@ -32,12 +32,36 @@ void Game::iniWindow()
 
 void Game::iniKey()
 {
-    //A = 0,B,C
-    this->supportedKey.emplace("Escape", sf::Keyboard::Key::Escape);
-    this->supportedKey.emplace("A", sf::Keyboard::Key::A);
-    this->supportedKey.emplace("D", sf::Keyboard::Key::D);
-    this->supportedKey.emplace("W", sf::Keyboard::Key::W);
-    this->supportedKey.emplace("S", sf::Keyboard::Key::S);
+   //keybord with file
+    /*std::ifstream ifs("Config/Keyboard.ini");
+
+    if (ifs.is_open())
+    {
+        std::string key = "";
+        int key_value = 0;
+
+        while (ifs >> key >> key_value)
+        {
+            this->supportedKey[key] = key_value;
+        }
+
+    }
+
+    ifs.close();
+
+    for (auto i : this->supportedKey)
+    {
+        std::cout << i.first << " " << i.second << "\n";
+    }*/
+
+
+this->supportedKey.emplace("Escape", sf::Keyboard::Key::Escape);
+this->supportedKey.emplace("A", sf::Keyboard::Key::A);
+this->supportedKey.emplace("D", sf::Keyboard::Key::D);
+this->supportedKey.emplace("W", sf::Keyboard::Key::W);
+this->supportedKey.emplace("S", sf::Keyboard::Key::S);
+   // this->supportedKey["A"] = sf::Keyboard::Key::A;
+
 }
 
 void Game::iniState()

@@ -16,6 +16,7 @@
 #include<SFML/System.hpp>
 #include<SFML/Window.hpp>
 #include<stdio.h>
+#include<iostream>
 
 class Entity
 {

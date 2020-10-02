@@ -2,12 +2,16 @@
 
 void GameState::iniKeybind()
 {
-	this->keybinds.emplace("Escape", this->supportedKey->at("Escape"));
+//	this->keybinds["Escape"]  = this->supportedKey->at("Escape");
 
-	this->keybinds.emplace("MOVE_LEFT",this->supportedKey->at("A"));
-	this->keybinds.emplace("MOVE_RIGHT",this->supportedKey->at("D"));
-	this->keybinds.emplace("MOVE_TOP",this->supportedKey->at("W"));
-	this->keybinds.emplace("MOVE_DOWN",this->supportedKey->at("S"));
+	this->keybinds["CLOSE"]  = this->supportedKey->at("Escape");
+	this->keybinds["MOVE_LEFT"] = this->supportedKey->at("A");
+	this->keybinds["MOVE_RIGHT"] = this->supportedKey->at("D");
+	this->keybinds["MOVE_TOP"] = this->supportedKey->at("W");
+	this->keybinds["MOVE_DOWN"] = this->supportedKey->at("S");
+
+	//this->keybinds.emplace("MOVE_LEFT", this->supportedKey->at("A"));
+
 }
 
 
