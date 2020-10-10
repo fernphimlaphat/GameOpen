@@ -19,6 +19,9 @@
     <Filter Include="Entities">
       <UniqueIdentifier>{df18dc88-66dc-4979-81ee-c839109815ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Button">
+      <UniqueIdentifier>{4a05ecc5-6a60-4d90-b44d-742ab1a5d4da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -36,6 +39,12 @@
     <ClCompile Include="Game.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -49,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Button</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
