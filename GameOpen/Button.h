@@ -11,10 +11,14 @@
 #include<SFML/System.hpp>
 #include<SFML/Window.hpp>
 
+enum button_state { BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE };
+
 class Button
 {
 
 private:
+
+	short unsigned buttonState;
 
 	sf::RectangleShape shape;
 	sf::Font* font;
@@ -27,8 +31,13 @@ private:
 
 
 public:
-	Button(float x, float y, float w, float h, sf::Font* font, std::string text, sf::Color idleColor, sf::Color hoverColor , sf::Color activeColor);
+	Button(float x, float y, float w, float h, 
+		sf::Font* font, std::string text, 
+		sf::Color idleColor, sf::Color hoverColor , sf::Color activeColor);
 	~Button();
+
+	//Accessors
+	const bool isPressed() const;
 
 	//Function
 
