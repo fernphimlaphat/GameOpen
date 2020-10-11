@@ -5,27 +5,49 @@
 //Initializer function
 
 
+void Game::iniVariable()
+{
+    this->window = NULL;
+    this->fullscreen = false;
+    this->dt = 0.f;
+}
+
 void Game::iniWindow()
 {
     //แสดงขนาดหน้าจอ 
 
     std::ifstream ifs("Config/window.ini");
     
-    std::string title = "None";
-    sf::VideoMode window_bounds(800,600);
+    this->videoMode = sf::VideoMode::getFullscreenModes();
+
+    std::string title = "Game";
+    sf::VideoMode window_bounds = sf::VideoMode::getDesktopMode();
+    bool fullscreen = false;
     unsigned framerate_limit = 120;
     bool veriable_sync_enabled = false;
+    unsigned antialiasing_level = 0;
+
 
     if(ifs.is_open())
     {
         std::getline(ifs, title);
         ifs >> window_bounds.width >> window_bounds.height;
+        ifs >> fullscreen;
         ifs >> framerate_limit;
         ifs >> veriable_sync_enabled;
+        ifs >> antialiasing_level;
     }
     ifs.close();
 
-    this->window = new sf::RenderWindow(window_bounds, title);
+    this->fullscreen = fullscreen;
+    this->windowSetting.antialiasingLevel = antialiasing_level;
+
+    if(this->fullscreen)
+        this->window = new sf::RenderWindow(window_bounds, title, sf::Style::Fullscreen , windowSetting);
+    
+    else
+        this->window = new sf::RenderWindow(window_bounds, title, sf::Style::Titlebar | sf::Style::Close, windowSetting);
+    
     this->window->setFramerateLimit(framerate_limit);
     this->window->setVerticalSyncEnabled(veriable_sync_enabled);
 }

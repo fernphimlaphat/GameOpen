@@ -9,6 +9,9 @@ private:
 	//Variable
 	sf::RenderWindow* window;
 	sf::Event sfEvent;
+	std::vector<sf::VideoMode> videoMode;
+	sf::ContextSettings windowSetting;
+	bool fullscreen;
 
 	//deltatime
 	sf::Clock dtClock;
@@ -20,9 +23,11 @@ private:
 
 	//Initializetion
 
+	void iniVariable();
 	void iniWindow();
 	void iniKey();
 	void iniState();
+
 public:
 	//Constructor/Destuctor
 	Game();

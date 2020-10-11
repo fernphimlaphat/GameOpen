@@ -9,12 +9,15 @@ class MainMenuState :
 {
 private:
     //verible
+    sf::Texture bgTexture;
     sf::RectangleShape background;
     sf::Font font;
 
     std::map<std::string, Button*> button;
 
     //Function
+    void iniVariable();
+    void iniBackground();
     void iniFont();
     void iniKeybind();
     void iniButton();
