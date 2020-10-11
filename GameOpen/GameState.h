@@ -16,7 +16,7 @@ private:
         
 public:
 
-    GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey);
+    GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey, std::stack<State*>* state);
     virtual ~GameState();
 
     //Function

@@ -12,15 +12,16 @@ private:
     sf::RectangleShape background;
     sf::Font font;
 
-    Button* gamestate_btn;
+    std::map<std::string, Button*> button;
 
     //Function
     void iniFont();
     void iniKeybind();
+    void iniButton();
 
 public:
 
-    MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKey);
+    MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKey, std::stack<State*>* state);
     virtual ~MainMenuState();
 
     //Function
@@ -29,7 +30,9 @@ public:
     void endState();
 
     void updateInput(const float& dt);
+    void updateButton();
     void update(const float& dt);
+    void renderButton(sf::RenderTarget* target = NULL);
     void render(sf::RenderTarget* target = NULL);
 };
 

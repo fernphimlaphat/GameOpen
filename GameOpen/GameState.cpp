@@ -15,8 +15,8 @@ void GameState::iniKeybind()
 }
 
 
-GameState::GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey)
-    : State(window , supportedKey)
+GameState::GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey, std::stack<State*>* state)
+    : State(window , supportedKey,state)
 {
 	this->iniKeybind();
 }

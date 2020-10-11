@@ -5,27 +5,24 @@
 
 class Game
 {
-
-//Variable
-	sf::RenderWindow *window;
+private:
+	//Variable
+	sf::RenderWindow* window;
 	sf::Event sfEvent;
 
 	//deltatime
 	sf::Clock dtClock;
 	float dt;
-	
-	std::stack<State*> state; 
+
+	std::stack<State*> state;
 
 	std::map<std::string, int> supportedKey;
 
-//Initializetion
+	//Initializetion
 
 	void iniWindow();
 	void iniKey();
 	void iniState();
-
-private:
-
 public:
 	//Constructor/Destuctor
 	Game();

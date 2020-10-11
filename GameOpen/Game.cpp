@@ -66,7 +66,7 @@ this->supportedKey.emplace("S", sf::Keyboard::Key::S);
 
 void Game::iniState()
 {
-   this->state.push(new MainMenuState(this-> window, &this->supportedKey));
+   this->state.push(new MainMenuState(this-> window, &this->supportedKey,&this->state));
   // this->state.push(new GameState(this-> window, &this->supportedKey));
 }
 

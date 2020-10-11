@@ -12,10 +12,12 @@ Button::Button(float x, float y, float w, float h, sf::Font* font, std::string t
 	this->text.setFont(*this->font);
 	this->text.setString(text);
 	this->text.setFillColor(sf::Color::White);
-	this->text.setCharacterSize(12);
-	this->text.setPosition(
-		  this->shape.getPosition().x  + (this->shape.getPosition().x / 2.f) - this->text.getGlobalBounds().width / 2.f
-		, this->shape.getPosition().y  + (this->shape.getPosition().x / 2.f) - this->text.getGlobalBounds().height / 2.f);
+	this->text.setCharacterSize(20);
+	this->text.setPosition(this->shape.getPosition().x + (w/4), this->shape.getPosition().y + (h/4));
+		 
+		//this->shape.getPosition().x + (this->shape.getPosition().x / 2.f) - this->text.getGlobalBounds().width / 2.f
+		//, this->shape.getPosition().y + (this->shape.getPosition().x / 2.f) - this->text.getGlobalBounds().height / 2.f);
+
 
 	this->idleColor = idleColor;
 	this->hoverColor = hoverColor;

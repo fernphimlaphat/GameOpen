@@ -9,6 +9,7 @@ private:
 
 protected:
 
+	std::stack<State*>* state;
 	sf::RenderWindow* window;
 	std::map<std::string, int>* supportedKey;
 	std::map<std::string, int> keybinds;
@@ -25,7 +26,7 @@ protected:
 	virtual void iniKeybind() = 0;
 
 public:
-	State(sf::RenderWindow* window , std::map<std::string,int>* supportedKey );
+	State(sf::RenderWindow* window , std::map<std::string,int>* supportedKey, std::stack<State*>* state );
 	virtual ~State();
 
 	const bool& getQuit() const;
