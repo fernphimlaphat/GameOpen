@@ -1,39 +1,30 @@
 #pragma once
-#include<vector>
 
-#include<stdio.h>
-
-#include<stack>
-#include<map>
-#include<vector>
-
-#include<ctime>
-#include<cstdlib>
-#include<fstream>
-#include<sstream>
-
-#include<SFML/Graphics.hpp>
-#include<SFML/System.hpp>
-#include<SFML/Window.hpp>
-#include<stdio.h>
-#include<iostream>
+#include"MovementComponent.h"
 
 class Entity
 {
 
 private:
-
+	void iniVariable();
 
 protected:
-	sf::RectangleShape shape;
-	float movementSpeed;
+	sf::Sprite sprite;
+
+	//sf::RectangleShape shape;
+	MovementComponent* movementComponent;
 
 
 public:
 	Entity();
 	virtual ~Entity();
 
+	//Component function
+	void setTexture(sf::Texture& texture);
+	void CreateMovementComponent(const float maxVelocity);
+
 	//Function
+	virtual void setPosition(const float x,const float y);
 	virtual void move(const float& dt,const float x,const float y);
 	virtual void update(const float& dt);
 	virtual void render(sf::RenderTarget* target);

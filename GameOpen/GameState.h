@@ -8,11 +8,12 @@ class GameState :
 {
 
 private:
-    Entity player;
-
+    Player* player;
 
     //Function
     void iniKeybind();
+    void iniTexture();
+    void iniPlayer();
         
 public:
 
@@ -22,7 +23,7 @@ public:
     //Function
 
 
-    void endState();
+    //void endState();
 
     void updateInput(const float& dt);
     void update(const float& dt);

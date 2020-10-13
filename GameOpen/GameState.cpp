@@ -1,5 +1,6 @@
 #include "GameState.h"
 
+//ini
 void GameState::iniKeybind()
 {
 //	this->keybinds["Escape"]  = this->supportedKey->at("Escape");
@@ -14,44 +15,66 @@ void GameState::iniKeybind()
 
 }
 
+void GameState::iniTexture()
+{
+	if (!this->texture["Play_IDLE"].loadFromFile("img/npc and player/player/Player1.png"))
+	{
+		printf("NOT LOAD PLAYER");
+	}
 
+}
+
+void GameState::iniPlayer()
+{
+	this->player = new Player(0,0, this->texture["Play_IDLE"]);
+}
+
+//Contruc Destruc
 GameState::GameState(sf::RenderWindow* window , std::map<std::string,int>* supportedKey, std::stack<State*>* state)
     : State(window , supportedKey,state)
 {
 	this->iniKeybind();
+	this->iniTexture();
+	this->iniPlayer();
 }
 
 GameState::~GameState()
 {
+	delete this->player;
 }
 
-void GameState::endState()
-{
-    printf("End Game\n");
-}
+//void gamestate::endstate()
+//{
+//    printf("end game\n");
+//}
 
 void GameState::updateInput(const float& dt)
 {
 
     //Keyboard
-    this->checkForQuit();
+    //this->checkForQuit();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
 	{
-		this->player.move(dt, -1.f, 0.f);
+		this->player->move(dt, -1.f, 0.f);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_RIGHT"))))
 	{
-		this->player.move(dt, 1.f, 0.f);
+		this->player->move(dt, 1.f, 0.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_TOP"))))
 	{
-		this->player.move(dt, 0.f, -1.f);
+		this->player->move(dt, 0.f, -1.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
 	{
-		this->player.move(dt, 0.f, 1.f);
+		this->player->move(dt, 0.f, 1.f);
+	}
+	//quit to main menu
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))))
+	{
+		this->endState();
 	}
     
 	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -66,7 +89,7 @@ void GameState::update(const float& dt)
 
     this->updateInput(dt);
 
-	this->player.update(dt);
+	this->player->update(dt);
 }
 
 void GameState::render(sf::RenderTarget* target)
@@ -76,6 +99,6 @@ void GameState::render(sf::RenderTarget* target)
 	{
 		target = this->window;
 	}
-        this->player.render(target);
+        this->player->render(target);
     
 }

@@ -39,7 +39,7 @@ void MainMenuState::iniKeybind()
 	//this->keybinds.emplace("MOVE_LEFT", this->supportedKey->at("A"));
 
 }
-
+                                  
 void MainMenuState::iniButton()
 {
 	this->button["Game_State"] = new Button(80, 700, 150, 50,
@@ -76,18 +76,15 @@ MainMenuState::~MainMenuState()
 	}
 }
 
-void MainMenuState::endState()
-{
-	printf("End MenuState\n");
-}
+//void MainMenuState::endState()
+//{
+//	printf("End MenuState\n");
+//}
 
 void MainMenuState::updateInput(const float& dt)
 {
-
 	//Keyboard
-	this->checkForQuit();
-	
-
+	//this->checkForQuit();
 }
 
 void MainMenuState::updateButton()
@@ -107,7 +104,7 @@ void MainMenuState::updateButton()
 	//quit
 	if (this->button["Exit_State"]->isPressed())
 	{
-		this->quit = true;
+		this->endState();
 	}
 }
 

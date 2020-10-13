@@ -30,7 +30,7 @@ public:
     //Function
 
 
-    void endState();
+    //void endState();
 
     void updateInput(const float& dt);
     void updateButton();

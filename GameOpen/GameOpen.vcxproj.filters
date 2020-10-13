@@ -22,11 +22,11 @@
     <Filter Include="Button">
       <UniqueIdentifier>{4a05ecc5-6a60-4d90-b44d-742ab1a5d4da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{f4ba3d7e-f68c-41fb-8a2f-6da2cb5d448d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>State</Filter>
     </ClCompile>
@@ -44,6 +44,15 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
